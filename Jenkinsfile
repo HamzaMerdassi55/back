@@ -16,14 +16,14 @@ node {
       env.PATH = "${dockerHome}/bin:${env.PATH}"    
     }
    
-    stage('Build Docker Image') {
-      sh "docker -H tcp://192.168.127.130:2375 build -t devopslabs:${env.BUILD_NUMBER} ."
-    }
+    // stage('Build Docker Image') {
+    //   sh "docker -H tcp://192.168.127.130:2375 build -t devopslabs:${env.BUILD_NUMBER} ."
+    // }
    
-    stage('Deploy Docker Image'){
-    echo "Docker Container devopslabs deleting..."
-    sh "docker -H tcp://192.168.127.130:2375 rm -f devopslabs"
-          echo "Docker Image Tag Name: ${dockerImageTag}"
-    sh "docker -H tcp://192.168.127.130:2375 run --name devopslabs -d -p 2222:2222 devopsexample:${env.BUILD_NUMBER}"
-    }
+    // stage('Deploy Docker Image'){
+    // echo "Docker Container devopslabs deleting..."
+    // sh "docker -H tcp://192.168.127.130:2375 rm -f devopslabs"
+    //       echo "Docker Image Tag Name: ${dockerImageTag}"
+    // sh "docker -H tcp://192.168.127.130:2375 run --name devopslabs -d -p 2222:2222 devopsexample:${env.BUILD_NUMBER}"
+    // }
 }
